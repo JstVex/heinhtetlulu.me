@@ -1,4 +1,5 @@
 import './globals.css'
+import Navbar from '@/components/Navbar'
 
 export const metadata = {
   title: 'Portfolio',
@@ -8,8 +9,24 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        {children}
+      <body className='bg-zinc-50 text-white flex justify-center items-center dark:bg-black'>
+        <div className='bg-white w-[100vw] border-x border-zinc-100 sm:w-[92vw] lg:w-[85vw] dark:bg-zinc-900 dark:border-zinc-700'>
+          <div className='bg-white mx-8 sm:mx-10 md:mx-14 lg:mx-20 xl:mx-24  dark:bg-zinc-900'>
+            <Navbar />
+            {children}
+          </div>
+
+        </div>
+        {/* <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
+        <div className="fixed inset-0 flex justify-center sm:px-8">
+          <div className="flex w-full max-w-7xl lg:px-8">
+            <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
+          </div>
+        </div>
+        <div className="relative">
+          {children}
+        </div> */}
+
       </body>
     </html>
   )
