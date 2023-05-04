@@ -42,6 +42,20 @@ const projects = [
 export default function Home() {
   const [latestPosts, setLatestPosts] = useState([]);
 
+  useEffect(() => {
+    const getLatestPosts = async () => {
+      try {
+        const response = await fetch('https://dev-x-life.onrender.com/posts');
+        const data = await response.json();
+        setLatestPosts(data);
+      }
+      catch (error) {
+        console.error(error);
+      }
+    }
+    getLatestPosts();
+  }, [latestPosts])
+
   return (
     <main className="h-full">
       <section className="">
@@ -84,6 +98,26 @@ export default function Home() {
             )
           })}
         </ul>
+      </section>
+      <section>
+        <div className="flex items-center mt-20">
+          <div className="text-4xl font-bold">
+            Latest Posts
+          </div>
+          <Link href='/blogs' className="ml-auto">
+            <button className="py-2 text-zinc-200 px-3 rounded-lg bg-white/90 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20">
+              View all
+            </button>
+          </Link>
+
+        </div>
+
+        <div className="flex flex-col my-8 divide-y divide-zinc-800 dark:divide-zinc-600">
+          {latestPosts.map((post) => {
+            return <LatestPosts key={post._id} post={post} />
+          })}
+
+        </div>
       </section>
     </main>
   )
