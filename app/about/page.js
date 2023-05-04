@@ -23,6 +23,20 @@ let resume = [
     },
 ]
 
+function Skills({ icon, text }) {
+    return (
+        <div className="flex items-center justify-center gap-1">
+            <div>
+                {icon}
+            </div>
+            <div>
+                {text}
+            </div>
+        </div>
+
+    )
+}
+
 export default function About() {
     return (
         <main className="h-full">
@@ -91,7 +105,64 @@ export default function About() {
                 </section>
             </div >
 
+            <section className="my-12">
+                <div className="text-4xl">
+                    Skills
+                </div>
+                <div className="mt-3 flex flex-col justify-center gap-x-10 md:flex-row md:items-center">
+                    <div className="text-lg flex flex-wrap items-start mt-6 gap-x-8 gap-y-5">
+                        <Skills icon={'ic'} text={'Html'}></Skills>
+                        <Skills icon={'ic'} text={'Css'}></Skills>
+                        <Skills icon={'ic'} text={'Javascript (ES6+)'}></Skills>
+                        <Skills icon={'ic'} text={'Typescript'}></Skills>
+                        <Skills icon={'ic'} text={'React'}></Skills>
+                        <Skills icon={'ic'} text={'Tailwind'}></Skills>
+                        <Skills icon={'ic'} text={'Vite'}></Skills>
+                        <Skills icon={'ic'} text={'Firebase'}></Skills>
+                        <Skills icon={'ic'} text={'Postgres'}></Skills>
+                        <Skills icon={'ic'} text={'Prisma'}></Skills>
+                        <Skills icon={'ic'} text={'Git'}></Skills>
+                        <div className="flex flex-col items-center">
+                            <div className="flex items-center gap-x-8 gap-y-4 border-b border-blue-300">
+                                <Skills icon={'ic'} text={'Nextjs'}></Skills>
+                                <Skills icon={'ic'} text={'Nodejs'}></Skills>
+                                <Skills icon={'ic'} text={'Express'}></Skills>
+                                <Skills icon={'ic'} text={'Mongodb'}></Skills>
+                            </div>
+                            <div className="text-md text-blue-300">
+                                My go-to stack
+                            </div>
+                        </div>
 
+                    </div>
+                    <div className="mt-5 min-w-[120px] text-xl order-first text-cyan-300 md:mx-6 md:my-auto md:order-last">
+                        Proficient in
+                    </div>
+                </div>
+                <div className="mt-4 text-lg flex flex-col justify-center gap-x-10 md:flex-row md:items-center">
+                    <div className="mt-10 min-w-[200px] text-xl text-cyan-300 md:mx-auto">
+                        Have experience in
+                    </div>
+                    <div className=" flex flex-wrap items-center mt-6 gap-x-8 gap-y-4 md:mt-12">
+                        <Skills icon={'ic'} text={'Markdown'}></Skills>
+                        <Skills icon={'ic'} text={'Framer Motion'}></Skills>
+                        <Skills icon={'ic'} text={'Puppeteer'}></Skills>
+                        <Skills icon={'ic'} text={'Cloudinary'}></Skills>
+                        <Skills icon={'ic'} text={'Rich text editor'}></Skills>
+                        <Skills icon={'ic'} text={'ChakraUI'}></Skills>
+                    </div>
+                </div>
+                <div className="mt-12 text-lg flex flex-col gap-x-10 md:flex-row md:items-center md:mt-4">
+                    <div className="flex flex-wrap items-center mt-6 gap-x-8 gap-y-4 md:mt-12">
+                        <Skills icon={'ic'} text={'Graphql'}></Skills>
+                        <Skills icon={'ic'} text={'Something'}></Skills>
+                        <Skills icon={'ic'} text={'Something'}></Skills>
+                    </div>
+                    <div className="min-w-[120px] text-xl order-first text-cyan-300 md:mx-auto md:mt-auto md:order-last ">
+                        About to Learn
+                    </div>
+                </div>
+            </section>
         </main >
     )
 }
