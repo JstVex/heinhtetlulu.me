@@ -129,7 +129,7 @@ export default function About() {
                                 <Skills icon={'ic'} text={'Express'}></Skills>
                                 <Skills icon={'ic'} text={'Mongodb'}></Skills>
                             </div>
-                            <div className="text-md text-blue-300">
+                            <div className="text-md text-blue-300 font-handwritten">
                                 My go-to stack
                             </div>
                         </div>
@@ -149,7 +149,7 @@ export default function About() {
                         <Skills icon={'ic'} text={'Puppeteer'}></Skills>
                         <Skills icon={'ic'} text={'Cloudinary'}></Skills>
                         <Skills icon={'ic'} text={'Rich text editor'}></Skills>
-                        <Skills icon={'ic'} text={'ChakraUI'}></Skills>
+                        <Skills icon={'ic'} text={'OpenAI'}></Skills>
                     </div>
                 </div>
                 <div className="mt-12 text-lg flex flex-col gap-x-10 md:flex-row md:items-center md:mt-4">
@@ -160,6 +160,75 @@ export default function About() {
                     </div>
                     <div className="min-w-[120px] text-xl order-first text-cyan-300 md:mx-auto md:mt-auto md:order-last ">
                         About to Learn
+                    </div>
+                </div>
+            </section>
+            <section className="my-12">
+                <div className="text-4xl">
+                    Tools
+                </div>
+                <div className="space-y-20 mt-12">
+                    <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-500/40">
+                        <div className="grid max-w-4xl grid-cols-1 items-baseline gap-y-8 md:grid-cols-4">
+                            <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
+                                Hardware
+                            </h2>
+                            <div className="md:col-span-3">
+                                <ul className="space-y-16">
+                                    <li className="flex flex-col items-start">
+                                        <h3 className="text-lg font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                                            MacBook M1 2020
+                                        </h3>
+                                        <p className="mt-2 text-md text-zinc-600 dark:text-zinc-400">
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo nemo voluptas ex. Id nam, atque maiores tempore dicta velit natus ab inventore consequatur deleniti eos debitis! Alias, perspiciatis porro? Culpa!
+                                        </p>
+                                    </li>
+                                    <li className="flex flex-col items-start">
+                                        <h3 className="text-lg font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                                            Compac monitor with Windows and Ubuntu dual booted
+                                        </h3>
+                                        <p className="mt-2 text-md text-zinc-600 dark:text-zinc-400">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, quibusdam quas? Veniam ex facilis fuga explicabo rem, molestias minima amet, tempore, mollitia saepe officiis. Dicta quidem ex earum deleniti ab.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-500/40">
+                        <div className="grid max-w-4xl grid-cols-1 items-baseline gap-y-8 md:grid-cols-4">
+                            <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
+                                Software
+                            </h2>
+                            <div className="md:col-span-3">
+                                <ul className="space-y-16">
+                                    <li className="flex flex-col items-start">
+                                        <h3 className="text-lg font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                                            Visual Studio Code
+                                        </h3>
+                                        <p className="mt-2 text-md text-zinc-600 dark:text-zinc-400">
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ab tempore itaque inventore officia est sunt aut, blanditiis quos possimus ea animi saepe obcaecati distinctio? Ea, dignissimos! Quaerat, quam atque?
+                                        </p>
+                                    </li>
+                                    <li className="flex flex-col items-start">
+                                        <h3 className="text-lg font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                                            NeoVim
+                                        </h3>
+                                        <p className="mt-2 text-md text-zinc-600 dark:text-zinc-400">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente necessitatibus molestiae maxime in nostrum provident labore inventore explicabo officia at libero nihil, quae odit! Maiores nisi assumenda vero ipsa doloribus.
+                                        </p>
+                                    </li>
+                                    <li className="flex flex-col items-start">
+                                        <h3 className="text-lg font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+                                            Obsidian
+                                        </h3>
+                                        <p className="mt-2 text-md text-zinc-600 dark:text-zinc-400">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima inventore ea neque tempora sed quae nihil quam quas ipsa sequi, expedita delectus numquam! Ratione inventore hic aliquid dicta cumque vel.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
