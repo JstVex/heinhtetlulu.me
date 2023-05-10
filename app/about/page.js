@@ -1,6 +1,9 @@
 'use client'
 
 import Image from "next/image"
+import { useState } from "react"
+import { BsDiamondFill } from 'react-icons/bs'
+import clsx from 'clsx'
 
 let resume = [
     {
@@ -37,7 +40,102 @@ function Skills({ icon, text }) {
     )
 }
 
+function ProficientSkills() {
+    return (
+        <div className="my-4">
+            <h4 className="mt-8 pb-2 text-2xl md:w-[80%] text-blue-300 border-b border-zinc-800 dark:border-zinc-700">
+                Proficient in
+            </h4>
+            <div className="text-lg h-48 md:w-[80%] md:h-36 flex flex-wrap mt-2 gap-x-8 ">
+                <Skills icon={'ic'} text={'Html'}></Skills>
+                <Skills icon={'ic'} text={'Css'}></Skills>
+                <Skills icon={'ic'} text={'Javascript (ES6+)'}></Skills>
+                <Skills icon={'ic'} text={'Typescript'}></Skills>
+                <Skills icon={'ic'} text={'React'}></Skills>
+                <Skills icon={'ic'} text={'Nextjs'}></Skills>
+                <Skills icon={'ic'} text={'Tailwind'}></Skills>
+                <Skills icon={'ic'} text={'Vite'}></Skills>
+                <Skills icon={'ic'} text={'Nodejs'}></Skills>
+                <Skills icon={'ic'} text={'Express'}></Skills>
+                <Skills icon={'ic'} text={'Mongodb'}></Skills>
+                <Skills icon={'ic'} text={'Postgres'}></Skills>
+                <Skills icon={'ic'} text={'Prisma'}></Skills>
+                <Skills icon={'ic'} text={'Git'}></Skills>
+                {/* <div className="flex flex-col items-center"> */}
+                {/* <div className="flex items-center gap-x-8 gap-y-4 border-b border-blue-300"> */}
+
+
+                {/* </div> */}
+                {/* <div className="text-md text-blue-300 font-handwritten">
+                        My go-to stack
+                    </div> */}
+                {/* </div> */}
+            </div>
+            <p className="text-md mt-6 text-zinc-700 dark:text-zinc-500">
+                *My go-to stack is MERN and currently I use nextjs for pretty much every dynamic applications*
+            </p>
+
+        </div>
+    )
+}
+
+function HaveExperienceSkills() {
+    return (
+        <div className="my-4">
+            <div className="mt-8 pb-2 text-2xl md:w-[80%] text-blue-300 border-b border-zinc-800 dark:border-zinc-700">
+                Have experience in
+            </div>
+            <div className="text-lg h-48 md:h-36 flex flex-wrap items-center md:w-[80%] mt-2 gap-x-8">
+                <Skills icon={'ic'} text={'Firebase'}></Skills>
+                <Skills icon={'ic'} text={'Markdown'}></Skills>
+                <Skills icon={'ic'} text={'Framer Motion'}></Skills>
+                <Skills icon={'ic'} text={'Nextauth'}></Skills>
+                <Skills icon={'ic'} text={'JWT'}></Skills>
+                <Skills icon={'ic'} text={'Puppeteer'}></Skills>
+                <Skills icon={'ic'} text={'Cloudinary'}></Skills>
+                <Skills icon={'ic'} text={'Rich text editor'}></Skills>
+                <Skills icon={'ic'} text={'OpenAI'}></Skills>
+            </div>
+            <p className="text-md mt-6 text-zinc-700 dark:text-zinc-500">
+                *I enjoy trying out new packages and integrating useful libraries into my projects to improve them*
+            </p>
+        </div >
+    )
+}
+
+function LearningSkills() {
+    return (
+        <div className="my-4">
+            <div className="mt-8 pb-2 text-2xl md:w-[80%] text-blue-300 border-b border-zinc-800 dark:border-zinc-700">
+                Planning to learn
+            </div>
+            <div className="text-lg h-48 md:h-36 md:w-[80%] flex flex-wrap items-center mt-2 gap-x-8 ">
+                <Skills icon={'ic'} text={'Graphql'}></Skills>
+                <Skills icon={'ic'} text={'React query'}></Skills>
+                <Skills icon={'ic'} text={'Clerk'}></Skills>
+            </div>
+            <p className="text-md mt-6 text-zinc-700 dark:text-zinc-500">
+                *Learning is a life long process and I want to be well rounded and up to date with the lastest technology*
+            </p>
+        </div>
+    )
+}
+
 export default function About() {
+    const [section, setSection] = useState('first');
+
+    const handleClickFirst = () => {
+        setSection('first')
+    }
+
+    const handleClickSecond = () => {
+        setSection('second')
+    }
+
+    const handleClickThird = () => {
+        setSection('third')
+    }
+
     return (
         <main className="h-full">
             <div className="grid grid-cols-1 gap-y-16 mt-10 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
@@ -106,62 +204,19 @@ export default function About() {
             </div >
 
             <section className="my-12">
-                <div className="text-4xl">
+                <h2 className="text-4xl font-semibold">
                     Skills
+                </h2>
+                {section === 'first' && <ProficientSkills />}
+                {section === 'second' && <HaveExperienceSkills />}
+                {section === 'third' && <LearningSkills />}
+                <div className="flex mt-10 h-10 items-center justify-center gap-x-6">
+                    <BsDiamondFill className={clsx(`transition-all duration-300 hover:text-xl hover:text-blue-300 `, section === 'first' && 'text-xl text-blue-300')} onClick={handleClickFirst} />
+                    <BsDiamondFill className={clsx(`transition-all duration-300 hover:text-xl hover:text-blue-300 `, section === 'second' && 'text-xl text-blue-300')}
+                        onClick={handleClickSecond} />
+                    <BsDiamondFill className={clsx(`transition-all duration-300 hover:text-xl hover:text-blue-300 `, section === 'third' && 'text-xl text-blue-300')} onClick={handleClickThird} />
                 </div>
-                <div className="mt-3 flex flex-col justify-center gap-x-10 md:flex-row md:items-center">
-                    <div className="text-lg flex flex-wrap items-start mt-6 gap-x-8 gap-y-5">
-                        <Skills icon={'ic'} text={'Html'}></Skills>
-                        <Skills icon={'ic'} text={'Css'}></Skills>
-                        <Skills icon={'ic'} text={'Javascript (ES6+)'}></Skills>
-                        <Skills icon={'ic'} text={'Typescript'}></Skills>
-                        <Skills icon={'ic'} text={'React'}></Skills>
-                        <Skills icon={'ic'} text={'Tailwind'}></Skills>
-                        <Skills icon={'ic'} text={'Vite'}></Skills>
-                        <Skills icon={'ic'} text={'Firebase'}></Skills>
-                        <Skills icon={'ic'} text={'Postgres'}></Skills>
-                        <Skills icon={'ic'} text={'Prisma'}></Skills>
-                        <Skills icon={'ic'} text={'Git'}></Skills>
-                        <div className="flex flex-col items-center">
-                            <div className="flex items-center gap-x-8 gap-y-4 border-b border-blue-300">
-                                <Skills icon={'ic'} text={'Nextjs'}></Skills>
-                                <Skills icon={'ic'} text={'Nodejs'}></Skills>
-                                <Skills icon={'ic'} text={'Express'}></Skills>
-                                <Skills icon={'ic'} text={'Mongodb'}></Skills>
-                            </div>
-                            <div className="text-md text-blue-300 font-handwritten">
-                                My go-to stack
-                            </div>
-                        </div>
 
-                    </div>
-                    <div className="mt-5 min-w-[120px] text-xl order-first text-cyan-300 md:mx-6 md:my-auto md:order-last">
-                        Proficient in
-                    </div>
-                </div>
-                <div className="mt-4 text-lg flex flex-col justify-center gap-x-10 md:flex-row md:items-center">
-                    <div className="mt-10 min-w-[200px] text-xl text-cyan-300 md:mx-auto">
-                        Have experience in
-                    </div>
-                    <div className=" flex flex-wrap items-center mt-6 gap-x-8 gap-y-4 md:mt-12">
-                        <Skills icon={'ic'} text={'Markdown'}></Skills>
-                        <Skills icon={'ic'} text={'Framer Motion'}></Skills>
-                        <Skills icon={'ic'} text={'Puppeteer'}></Skills>
-                        <Skills icon={'ic'} text={'Cloudinary'}></Skills>
-                        <Skills icon={'ic'} text={'Rich text editor'}></Skills>
-                        <Skills icon={'ic'} text={'OpenAI'}></Skills>
-                    </div>
-                </div>
-                <div className="mt-12 text-lg flex flex-col gap-x-10 md:flex-row md:items-center md:mt-4">
-                    <div className="flex flex-wrap items-center mt-6 gap-x-8 gap-y-4 md:mt-12">
-                        <Skills icon={'ic'} text={'Graphql'}></Skills>
-                        <Skills icon={'ic'} text={'Something'}></Skills>
-                        <Skills icon={'ic'} text={'Something'}></Skills>
-                    </div>
-                    <div className="min-w-[120px] text-xl order-first text-cyan-300 md:mx-auto md:mt-auto md:order-last ">
-                        About to Learn
-                    </div>
-                </div>
             </section>
             <section className="my-12">
                 <div className="text-4xl">
