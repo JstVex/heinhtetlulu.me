@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import ProjectSimple from "@/components/ProjectSimple";
 import LatestPosts from "@/components/LastestPosts";
+import { allDocs } from "@/.contentlayer/generated";
 
 
 const projects = [
@@ -115,12 +116,29 @@ export default function Home() {
 
         </div>
 
-        <div className="flex flex-col my-8 divide-y divide-zinc-800 dark:divide-zinc-600">
+        {/* <div className="flex flex-col my-8 divide-y divide-zinc-800 dark:divide-zinc-600">
           {latestPosts.map((post) => {
             return <LatestPosts key={post._id} post={post} />
           })}
+        </div> */}
 
-        </div>
+        <ul className="flex flex-col divide-y my-4 divide-zinc-800 dark:divide-zinc-700">
+          {allDocs.map((doc) => {
+            return (
+              <li key={doc.slug}>
+                <Link href={`/blogs/${doc.slugAsParams}`} className="flex py-[0.3rem] items-center">
+                  <div className="text-lg ">
+                    {doc.title}
+                  </div>
+                  <div className=" ml-auto text-blue-300">
+                    {doc.creationDate}, {doc.creationYear}
+                  </div>
+
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
 
         <div className="flex justify-center">
           <button className="p-4 text-lg rounded-lg ring-1 ring-zinc-900/5 bg-white/90 dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20">
