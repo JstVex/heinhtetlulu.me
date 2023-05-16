@@ -1,24 +1,82 @@
-'use client'
+import Link from "next/link";
+import { readdirSync } from 'fs';
+import path from "path";
+import { allDocs } from '../../.contentlayer/generated'
 
-import LatestPosts from "@/components/LastestPosts";
-import { useState, useEffect } from "react";
+// async function getPosts() {
+//     const res = await fetch('https://dev-x-life.onrender.com/posts');
+//     const data = await res.json();
+//     return data;
+// }
 
-export default function Blogs() {
-    const [latestPosts, setLatestPosts] = useState([]);
+// function LatestPosts({ post }) {
 
-    useEffect(() => {
-        const getLatestPosts = async () => {
-            try {
-                const response = await fetch('https://dev-x-life.onrender.com/posts');
-                const data = await response.json();
-                setLatestPosts(data);
-            }
-            catch (error) {
-                console.error(error);
-            }
-        }
-        getLatestPosts();
-    }, [latestPosts])
+//     const { _id, title, creationDate } = post;
+
+//     return (
+//         <Link href={`/blogs/${_id}`}>
+//             <div className="flex py-[0.3rem] items-center">
+//                 <div className="text-lg ">
+//                     {title}
+//                 </div>
+//                 <div className=" ml-auto text-blue-300">
+//                     {creationDate}
+//                 </div>
+//             </div>
+//         </Link>
+//     )
+// }
+
+// function getAllDocs() {
+//     const doc = allDocs;
+//     console.log('doc is', doc)
+//     return doc
+// }
+
+// function BlogList() {
+//     console.log('docs is ', docs)
+//     const postsDirectory = path.join(process.cwd(), 'data/blog');
+//     const postFiles = readdirSync(postsDirectory);
+
+//     return (
+//         <ul>
+//             {postFiles.map((filename) => {
+//                 const slug = filename.replace(/\.mdx$/, '');
+//                 return (
+//                     <li key={slug}>
+//                         <Link href={`/blogs/${slug}`} passHref>
+//                             <div>{slug}</div>
+//                         </Link>
+//                     </li>
+//                 );
+//             })}
+//         </ul>
+//     );
+// }
+
+function AllBlogs() {
+    return (
+        <ul className="flex flex-col divide-y my-4 divide-zinc-800 dark:divide-zinc-700">
+            {allDocs.map((doc) => {
+                return (
+                    <li key={doc.slug}>
+                        <Link href={`/blogs/${doc.slugAsParams}`} className="flex py-[0.3rem] items-center">
+                            <div className="text-lg ">
+                                {doc.title}
+                            </div>
+                            <div className=" ml-auto text-blue-300">
+                                {doc.creationDate}
+                            </div>
+
+                        </Link>
+                    </li>
+                )
+            })}
+        </ul>
+    )
+}
+
+export default async function Blogs() {
     return (
         <main className="">
             <h1 className="text-5xl mt-12 font-bold lg:w-[65%]">
@@ -44,30 +102,18 @@ export default function Blogs() {
                     <h3 className="mt-10 text-3xl font-semibold text-blue-300">
                         2023
                     </h3>
-                    <div className="flex flex-col my-4 divide-y divide-zinc-800 dark:divide-zinc-600">
-                        {latestPosts.map((post) => {
-                            return <LatestPosts key={post._id} post={post} />
-                        })}
 
-                    </div>
-                    <h3 className="mt-10 text-3xl font-semibold text-blue-300">
+                    <AllBlogs />
+
+                    {/* <h3 className="mt-10 text-3xl font-semibold text-blue-300">
                         2022
                     </h3>
                     <div className="flex flex-col my-4 divide-y divide-zinc-800 dark:divide-zinc-600">
-                        {latestPosts.map((post) => {
+                        {posts.map((post) => {
                             return <LatestPosts key={post._id} post={post} />
                         })}
 
-                    </div>
-                    <h3 className="mt-10 text-3xl font-semibold text-blue-300">
-                        2021
-                    </h3>
-                    <div className="flex flex-col my-4 divide-y divide-zinc-800 dark:divide-zinc-600">
-                        {latestPosts.map((post) => {
-                            return <LatestPosts key={post._id} post={post} />
-                        })}
-
-                    </div>
+                    </div> */}
                 </div>
                 <div className="mt-3 col-span-2">
                     <div className="mx-auto lg:mx-0 lg:pl-20">
@@ -85,3 +131,5 @@ export default function Blogs() {
         </main>
     )
 }
+
+
