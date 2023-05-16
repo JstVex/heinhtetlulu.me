@@ -1,0 +1,24 @@
+---
+title: Hello hello hello
+creationDate: 14 May
+creationYear: 2023
+description: just an example
+---
+
+## Introduction
+
+Mercury is a basic chat application created in order to practice using Typescript, Firebase and Tailwind.
+
+## Features
+
+It has a simple dark theme with zinc color tone from tailwind. For the main navigation I decided to use a sidebar which for now includes four links which are the main page, groups, archives and notifications.
+
+For authentication I let users pick from two choices which are: signing in with email and password or signing in with google which are from firebase [[Authentication]]. I keep track of user's auth status using [[onAuthStateChanged]] which is called inside a file named withAuth. This function accepts a component as argument and return called component plus props. This is to protect the routes by checking the user's auth status and push the route to `/login` using nextjs [[Router]] if the user doesn't exist.
+
+To acess the user object globally, a contect is created to store the current authenticated user. [[onAuthStateChanged]] is used again to keep track and get the user's object.
+
+When the user sign in or login, the user's email, photoUrl, displayname and [[serverTimestamp]] ( for implementing last seen feature ) are stored in `users` collection using [[setDoc] ] and user's uid. I run the useEffect inside sidebar so that it is run on every page but there is an error in which the page is running before the useEffect so the user's objects don't exist yet for some reason. _Must fix_
+
+There is a simple profile picture which is extracted from user's photoUrl. When clicked, it will show a window where there are simple user's credenetials, theme button and logout button. This is achieved using toggle state.
+
+Each user can add to every other user in the `users` collection using their emails. Users can't add themselves, they can't add someone who doesn't exist and they can't add someone again who they have already added before.
