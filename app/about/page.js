@@ -4,6 +4,12 @@ import Image from "next/image"
 import { useState } from "react"
 import { BsDiamondFill } from 'react-icons/bs'
 import clsx from 'clsx'
+import { AiFillHtml5 } from 'react-icons/ai'
+import { BsGit, BsMarkdownFill, BsFillCloudArrowUpFill } from 'react-icons/bs'
+import { DiCss3, DiJavascript1 } from 'react-icons/di'
+import { SiJavascript, SiNextdotjs, SiReact, SiTailwindcss, SiVite, SiExpress, SiMongodb, SiPostgresql, SiPrisma, SiSupabase, SiJsonwebtokens, SiPuppeteer, SiOpenai, SiGraphql, SiReactquery } from 'react-icons/si'
+import { FiType, FiFramer } from 'react-icons/fi'
+import { FaNodeJs } from 'react-icons/fa'
 
 let resume = [
     {
@@ -28,8 +34,8 @@ let resume = [
 
 function Skills({ icon, text }) {
     return (
-        <div className="flex items-center justify-center gap-1">
-            <div>
+        <div className="flex items-center justify-center gap-2">
+            <div className="text-2xl text-lime-300">
                 {icon}
             </div>
             <div>
@@ -47,20 +53,20 @@ function ProficientSkills() {
                 Proficient in
             </h4>
             <div className="text-lg h-48 md:w-[80%] md:h-36 flex flex-wrap mt-2 gap-x-8 ">
-                <Skills icon={'ic'} text={'Html'}></Skills>
-                <Skills icon={'ic'} text={'Css'}></Skills>
-                <Skills icon={'ic'} text={'Javascript (ES6+)'}></Skills>
-                <Skills icon={'ic'} text={'Typescript'}></Skills>
-                <Skills icon={'ic'} text={'React'}></Skills>
-                <Skills icon={'ic'} text={'Nextjs'}></Skills>
-                <Skills icon={'ic'} text={'Tailwind'}></Skills>
-                <Skills icon={'ic'} text={'Vite'}></Skills>
-                <Skills icon={'ic'} text={'Nodejs'}></Skills>
-                <Skills icon={'ic'} text={'Express'}></Skills>
-                <Skills icon={'ic'} text={'Mongodb'}></Skills>
-                <Skills icon={'ic'} text={'Postgres'}></Skills>
-                <Skills icon={'ic'} text={'Prisma'}></Skills>
-                <Skills icon={'ic'} text={'Git'}></Skills>
+                <Skills icon={<AiFillHtml5 />} text={'Html'}></Skills>
+                <Skills icon={<DiCss3 />} text={'Css'}></Skills>
+                <Skills icon={<DiJavascript1 />} text={'Javascript (ES6+)'}></Skills>
+                <Skills icon={<FiType />} text={'Typescript'}></Skills>
+                <Skills icon={<SiReact />} text={'React'}></Skills>
+                <Skills icon={<SiNextdotjs />} text={'Nextjs'}></Skills>
+                <Skills icon={<SiTailwindcss />} text={'Tailwind'}></Skills>
+                <Skills icon={<SiVite />} text={'Vite'}></Skills>
+                <Skills icon={<FaNodeJs />} text={'Nodejs'}></Skills>
+                <Skills icon={<SiExpress />} text={'Express'}></Skills>
+                <Skills icon={<SiMongodb />} text={'Mongodb'}></Skills>
+                <Skills icon={<SiPostgresql />} text={'Postgres'}></Skills>
+                <Skills icon={<SiPrisma />} text={'Prisma'}></Skills>
+                <Skills icon={<BsGit />} text={'Git'}></Skills>
                 {/* <div className="flex flex-col items-center"> */}
                 {/* <div className="flex items-center gap-x-8 gap-y-4 border-b border-blue-300"> */}
 
@@ -86,15 +92,14 @@ function HaveExperienceSkills() {
                 Have experience in
             </div>
             <div className="text-lg h-48 md:h-36 flex flex-wrap items-center md:w-[80%] mt-2 gap-x-8">
-                <Skills icon={'ic'} text={'Firebase'}></Skills>
-                <Skills icon={'ic'} text={'Markdown'}></Skills>
-                <Skills icon={'ic'} text={'Framer Motion'}></Skills>
+                <Skills icon={<SiSupabase />} text={'Supabase'}></Skills>
+                <Skills icon={<BsMarkdownFill />} text={'Markdown'}></Skills>
+                <Skills icon={<FiFramer />} text={'Framer Motion'}></Skills>
                 <Skills icon={'ic'} text={'Nextauth'}></Skills>
-                <Skills icon={'ic'} text={'JWT'}></Skills>
-                <Skills icon={'ic'} text={'Puppeteer'}></Skills>
-                <Skills icon={'ic'} text={'Cloudinary'}></Skills>
-                <Skills icon={'ic'} text={'Rich text editor'}></Skills>
-                <Skills icon={'ic'} text={'OpenAI'}></Skills>
+                <Skills icon={<SiJsonwebtokens />} text={'JWT'}></Skills>
+                <Skills icon={<SiPuppeteer />} text={'Puppeteer'}></Skills>
+                <Skills icon={<BsFillCloudArrowUpFill />} text={'Cloudinary'}></Skills>
+                <Skills icon={<SiOpenai />} text={'OpenAI'}></Skills>
             </div>
             <p className="text-md mt-6 text-zinc-700 dark:text-zinc-500">
                 *I enjoy trying out new packages and integrating useful libraries into my projects to improve them*
@@ -110,8 +115,8 @@ function LearningSkills() {
                 Planning to learn
             </div>
             <div className="text-lg h-48 md:h-36 md:w-[80%] flex flex-wrap items-center mt-2 gap-x-8 ">
-                <Skills icon={'ic'} text={'Graphql'}></Skills>
-                <Skills icon={'ic'} text={'React query'}></Skills>
+                <Skills icon={<SiGraphql />} text={'Graphql'}></Skills>
+                <Skills icon={<SiReactquery />} text={'React query'}></Skills>
                 <Skills icon={'ic'} text={'Clerk'}></Skills>
             </div>
             <p className="text-md mt-6 text-zinc-700 dark:text-zinc-500">
@@ -157,7 +162,7 @@ export default function About() {
                     <div className="text-blue-300 text-xl mb-5">
                         About my life, my career, my skills, my plans and my dreams
                     </div>
-                    <div className="mt-6 space-y-6 text-base text-zinc-600 dark:text-zinc-300">
+                    <div className="text-lg mt-6 space-y-6 text-base text-zinc-600 dark:text-zinc-300">
                         <p>
                             I&apos;m Hein Htet Lu Lu. I was born in Yangon, Myanmar where i spent my childhood and highschool years and where I started my journey in programming and web development.
                         </p>
@@ -166,12 +171,6 @@ export default function About() {
                         </p>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed perspiciatis quasi earum inventore aut deleniti ab, quibusdam nobis minima hic distinctio, dicta totam harum nesciunt labore modi dolor eum provident!
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quibusdam aspernatur doloribus corrupti ipsa sapiente eligendi reprehenderit excepturi expedita nobis fugit necessitatibus, sint explicabo pariatur dolor rerum at itaque molestias?
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ad at velit quidem totam, eos, dolor iste repudiandae ipsam ducimus repellendus animi architecto in dolores dolorem quo tempore recusandae aperiam.
                         </p>
                     </div>
                 </section>
@@ -219,7 +218,7 @@ export default function About() {
 
             </section>
             <section className="my-12">
-                <div className="text-4xl">
+                <div className="text-4xl font-semibold">
                     Tools
                 </div>
                 <div className="space-y-20 mt-12">
